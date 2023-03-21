@@ -19,7 +19,7 @@ if len(string_1) == len(string_2):
 else:
     print('As duas strings não tem o mesmo tamanho')
 
-if string_2 == string_1:
+if string_2.lower() == string_1.lower():
     print('As duas strings tem do mesmo conteúdo')
 else:
     print('As duas strings não tem do mesmo conteúdo')
