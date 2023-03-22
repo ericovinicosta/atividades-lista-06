@@ -8,18 +8,23 @@ meses_ano = [
     'maio', 'junho', 'julho', 'agosto', 'setembro',
     'outubro', 'novembro', 'dezembro'
 ]
+
+
 def valida_datas(data):
     if (len(data) != 10):
         raise ValueError('Não é uma data válida')
     if (data.find('/') < 0):
         raise ValueError('formato invalido, utilize /')
-    
+
+    nascimento = data_de_nascimento.split('/')
+    return (
+        nascimento[0],
+        int(nascimento[1]),
+        nascimento[2]
+    )
+
+
 data_de_nascimento = input('Informe sua data de nascimento: ')
-valida_datas(data_de_nascimento)
+data_validada = valida_datas(data_de_nascimento)
 
-nascimento = data_de_nascimento.split('/')
-dia = nascimento[0]
-mes = int(nascimento[1])
-ano = nascimento[2]
-
-print(f'{dia} de {meses_ano[mes-1]} de {ano}')
+print(f'{data_validada[0]} de {meses_ano[data_validada[1]-1]} de {data_validada[2]}')
